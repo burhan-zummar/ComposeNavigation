@@ -31,6 +31,7 @@ import com.ramcosta.composedestinations.generated.destinations.MainScreenNewDest
 import com.ramcosta.composedestinations.generated.destinations.SplashScreenNewDestination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.coroutines.delay
+import java.time.LocalDateTime
 
 @Composable
 fun NavigationRafaelDestination() {
@@ -80,7 +81,11 @@ fun MainScreenNew(navigator: DestinationsNavigator) {
             onClick = {
                 navigator.navigate(
                     DetailScreenNewDestination(
-                        name = text
+                        name = text,
+                        User (
+                            name = "Directly parce model",
+                            id = "user_is"
+                        )
                     )
                 )
             },
@@ -93,11 +98,13 @@ fun MainScreenNew(navigator: DestinationsNavigator) {
 
 @Destination<RootGraph>
 @Composable
-fun DetailScreenNew(name: String?) {
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()
+fun DetailScreenNew(name: String?, user: User) {
+    Column (
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "Hello, $name")
+        Text(text = user.name)
     }
 }
