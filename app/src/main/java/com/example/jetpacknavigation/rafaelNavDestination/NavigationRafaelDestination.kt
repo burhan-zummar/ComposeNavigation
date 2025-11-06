@@ -84,7 +84,7 @@ fun MainScreenNew(navigator: DestinationsNavigator) {
                         name = text,
                         User (
                             name = "Directly parse model",
-                            id = "user_is"
+                            id = "user_id"
                         )
                     )
                 )
